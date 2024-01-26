@@ -177,3 +177,6 @@ function showCurrentNum() {
 }
 
 display.textContent = "0";
+
+//to do:
+//create previous num variable and conditionals to work off of previous num
