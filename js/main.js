@@ -30,6 +30,10 @@ class Calculator {
   clear() {
     this.current = "";
   }
+
+  delete() {
+    this.current = this.current.toString().split("").slice(0, -1).join("");
+  }
 }
 
 let calc = new Calculator();
@@ -176,6 +180,11 @@ document.addEventListener("keydown", function (event) {
       calc.clear();
       showCurrentNum();
       display.textContent = "0";
+      break;
+
+    case "Backspace":
+      calc.delete();
+      showCurrentNum();
       break;
   }
 });
