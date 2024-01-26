@@ -46,6 +46,11 @@ document.querySelector(".clear").addEventListener("click", function () {
   display.textContent = "0";
 });
 
+document.querySelector(".backspace").addEventListener("click", function () {
+  calc.delete();
+  showCurrentNum();
+});
+
 document.querySelector(".divide").addEventListener("click", function () {
   calc.divide();
   showCurrentNum();

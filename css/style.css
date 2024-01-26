@@ -53,9 +53,14 @@ body {
   /* border: none; */
 }
 
-.clear,
-.zero {
+.clear {
   flex: 2 auto !important;
+}
+
+.backspace {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
 }
 
 /******************************************
