@@ -99,7 +99,7 @@ document.querySelector(".six").addEventListener("click", function () {
 });
 
 document.querySelector(".seven").addEventListener("click", function () {
-  calc.inputNum(71);
+  calc.inputNum(7);
   showCurrentNum();
 });
 
@@ -109,7 +109,12 @@ document.querySelector(".eight").addEventListener("click", function () {
 });
 
 document.querySelector(".nine").addEventListener("click", function () {
-  calc.inputNum("nine");
+  calc.inputNum(9);
+  showCurrentNum();
+});
+
+document.querySelector(".zero").addEventListener("click", function () {
+  calc.inputNum(0);
   showCurrentNum();
 });
 
@@ -180,3 +185,5 @@ display.textContent = "0";
 
 //to do:
 //create previous num variable and conditionals to work off of previous num
+//update styles
+//add conditionals to prevent invalid inputsS
