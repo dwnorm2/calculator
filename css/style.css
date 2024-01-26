@@ -33,6 +33,7 @@ body {
 
 .calcContainer {
   border: solid black 1px;
+  max-width: 296px;
 }
 
 .row {
@@ -52,11 +53,10 @@ body {
   height: 73.6px;
   width: 100%;
   cursor: text;
-  /* border: none; */
 }
 
 .clear {
-  flex: 2 auto !important;
+  flex: 2 auto;
 }
 
 .backspace {
