@@ -44,6 +44,8 @@ body {
   width: 73.6px;
   padding-left: 10px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 #display {
@@ -58,8 +60,6 @@ body {
 }
 
 .backspace {
-  display: flex;
-  align-items: center;
   font-size: 2rem;
 }
 
