@@ -139,8 +139,11 @@ document.addEventListener("keydown", function (event) {
     case "7":
     case "8":
     case "9":
-    case ".":
       calc.inputNum(+key);
+      showCurrentNum();
+      break;
+    case ".":
+      calc.inputNum(key);
       showCurrentNum();
       break;
     case "+":
