@@ -43,11 +43,13 @@ body {
   border: 1px solid black;
   width: 73.6px;
   padding-left: 10px;
+  cursor: pointer;
 }
 
 #display {
   height: 73.6px;
   width: 100%;
+  cursor: text;
   /* border: none; */
 }
 
