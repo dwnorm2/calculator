@@ -24,7 +24,7 @@ class Calculator {
   }
 
   equals() {
-    this.current = eval(this.current);
+    this.current = parseFloat(eval(this.current).toFixed(10));
   }
 
   clear() {
