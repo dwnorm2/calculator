@@ -132,7 +132,7 @@ document.querySelector(".decimal").addEventListener("click", function () {
   showCurrentNum();
 });
 
-document.addEventListener(onclick, showCurrentNum());
+showCurrentNum();
 
 document.addEventListener("keydown", function (event) {
   const key = event.key;
@@ -195,10 +195,10 @@ document.addEventListener("keydown", function (event) {
 });
 
 function showCurrentNum() {
-  display.textContent = calc.current;
+  display.textContent = !calc.current ? "0" : calc.current;
 }
 
-display.textContent = "0";
+// display.textContent = "0";
 
 //to do:
 //create previous num variable and conditionals to work off of previous num
