@@ -74,7 +74,6 @@ document.querySelector(".add").addEventListener("click", function () {
 document.querySelector(".equals").addEventListener("click", function () {
   calc.equals();
   showCurrentNum();
-  calc.clear();
 });
 
 document.querySelector(".one").addEventListener("click", function () {
@@ -177,7 +176,6 @@ document.addEventListener("keydown", function (event) {
     case "=":
       calc.equals();
       showCurrentNum();
-      calc.clear();
       break;
 
     case "c":
@@ -198,9 +196,6 @@ function showCurrentNum() {
   display.textContent = !calc.current ? "0" : calc.current;
 }
 
-// display.textContent = "0";
-
 //to do:
-//create previous num variable and conditionals to work off of previous num
-//update styles
+
 //add conditionals to prevent invalid inputsS
