@@ -4,7 +4,7 @@ class Calculator {
   }
 
   inputNum(num) {
-    this.current += num;
+    this.current += num.toString();
   }
 
   add() {
