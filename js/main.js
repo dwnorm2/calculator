@@ -14,6 +14,9 @@ class Calculator {
   equals() {
     try {
       this.current = parseFloat(Function(`'use strict'; return (${this.current})`)().toFixed(10));
+      if (this.current === Infinity) {
+        this.current = "nope ;)"; // Handle division by zero or other infinite results  
+      }
     } catch (error) {
       this.current = "Error";
     }
