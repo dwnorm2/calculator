@@ -7,24 +7,16 @@ class Calculator {
     this.current += num.toString();
   }
 
-  add() {
-    this.current += "+";
-  }
-
-  subtract() {
-    this.current += "-";
-  }
-
-  multiply() {
-    this.current += "*";
-  }
-
-  divide() {
-    this.current += "/";
+  inputOperator(operator) {
+    this.current += operator;
   }
 
   equals() {
-    this.current = parseFloat(eval(this.current).toFixed(10));
+    try {
+      this.current = parseFloat(Function(`'use strict'; return (${this.current})`)().toFixed(10));
+    } catch (error) {
+      this.current = "Error";
+    }
   }
 
   clear() {
@@ -52,22 +44,22 @@ document.querySelector(".backspace").addEventListener("click", function () {
 });
 
 document.querySelector(".divide").addEventListener("click", function () {
-  calc.divide();
+  calc.inputOperator("/");
   showCurrentNum();
 });
 
 document.querySelector(".multiply").addEventListener("click", function () {
-  calc.multiply();
+  calc.inputOperator("*");
   showCurrentNum();
 });
 
 document.querySelector(".subtract").addEventListener("click", function () {
-  calc.subtract();
+  calc.inputOperator("-");
   showCurrentNum();
 });
 
 document.querySelector(".add").addEventListener("click", function () {
-  calc.add();
+  calc.inputOperator("+");
   showCurrentNum();
 });
 
@@ -102,20 +94,20 @@ document.addEventListener("keydown", function (event) {
   // Handle other keys
   switch (key) {
     case "+":
-      calc.add();
+      calc.inputOperator("+");
       showCurrentNum();
       break;
     case "-":
-      calc.subtract();
+      calc.inputOperator("-");
       showCurrentNum();
       break;
     case "*":
-      calc.multiply();
+      calc.inputOperator("*");
       showCurrentNum();
       break;
     case "/":
       event.preventDefault();
-      calc.divide();
+      calc.inputOperator("/");
       showCurrentNum();
       break;
     case "Enter":
