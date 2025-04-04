@@ -31,7 +31,9 @@ class Calculator {
 
   equals() {
     try {
-      this.current = parseFloat(Function(`'use strict'; return (${this.current})`)().toFixed(10));
+      this.current = parseFloat(
+        Function(`'use strict'; return (${this.current})`)().toFixed(10)
+      );
       if (this.current === Infinity) {
         this.current = "nope ;)"; // Handle division by zero or other infinite results
       }
@@ -96,16 +98,18 @@ document.querySelector(".equals").addEventListener("click", function () {
   showCurrentNum();
 });
 
-document.querySelector(".calcContainer").addEventListener("click", function (event) {
-  const button = event.target;
-  const input = button.textContent;
+document
+  .querySelector(".calcContainer")
+  .addEventListener("click", function (event) {
+    const button = event.target;
+    const input = button.textContent;
 
-  // Check if the input is a number or a decimal point
-  if (!isNaN(input) || input === ".") {
-    calc.inputNum(input);
-    showCurrentNum();
-  }
-});
+    // Check if the input is a number or a decimal point
+    if (!isNaN(input) || input === ".") {
+      calc.inputNum(input);
+      showCurrentNum();
+    }
+  });
 
 showCurrentNum();
 
