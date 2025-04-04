@@ -92,24 +92,15 @@ showCurrentNum();
 document.addEventListener("keydown", function (event) {
   const key = event.key;
 
+  // Check if the key is a number or a decimal point
+  if (!isNaN(key) || key === ".") {
+    calc.inputNum(key);
+    showCurrentNum();
+    return;
+  }
+
+  // Handle other keys
   switch (key) {
-    case "0":
-    case "1":
-    case "2":
-    case "3":
-    case "4":
-    case "5":
-    case "6":
-    case "7":
-    case "8":
-    case "9":
-      calc.inputNum(+key);
-      showCurrentNum();
-      break;
-    case ".":
-      calc.inputNum(key);
-      showCurrentNum();
-      break;
     case "+":
       calc.add();
       showCurrentNum();
@@ -127,20 +118,17 @@ document.addEventListener("keydown", function (event) {
       calc.divide();
       showCurrentNum();
       break;
-
     case "Enter":
     case "=":
       calc.equals();
       showCurrentNum();
       break;
-
     case "c":
     case "C":
       calc.clear();
       showCurrentNum();
       display.textContent = "0";
       break;
-
     case "Backspace":
       calc.delete();
       showCurrentNum();
