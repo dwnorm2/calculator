@@ -6,9 +6,19 @@ class Calculator {
 
   inputNum(num) {
     if (this.lastEvaluated) {
-      this.current = ""; // Clear the current expression if last action was evaluation
+      this.current = ""; // Clear the current expression if the last action was evaluation
       this.lastEvaluated = false; // Reset the flag
     }
+
+    // Get the last number in the expression
+    const lastNumber = this.current.split(/[\+\-\*\/]/).pop();
+
+    // Prevent multiple decimal points in the current number
+    if (lastNumber.includes(".") && num === ".") {
+      return;
+    }
+
+    // Append the number to the current expression
     this.current += num.toString();
   }
 
