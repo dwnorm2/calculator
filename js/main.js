@@ -1,13 +1,21 @@
 class Calculator {
   constructor() {
     this.current = "";
+    this.lastEvaluated = false; // Tracks if the last action was an evaluation
   }
 
   inputNum(num) {
+    if (this.lastEvaluated) {
+      this.current = ""; // Clear the current expression if last action was evaluation
+      this.lastEvaluated = false; // Reset the flag
+    }
     this.current += num.toString();
   }
 
   inputOperator(operator) {
+    if (this.lastEvaluated) {
+      this.lastEvaluated = false; // Reset the flag
+    }
     this.current += operator;
   }
 
@@ -15,19 +23,26 @@ class Calculator {
     try {
       this.current = parseFloat(Function(`'use strict'; return (${this.current})`)().toFixed(10));
       if (this.current === Infinity) {
-        this.current = "nope ;)"; // Handle division by zero or other infinite results  
+        this.current = "nope ;)"; // Handle division by zero or other infinite results
       }
     } catch (error) {
       this.current = "Error";
     }
+    this.lastEvaluated = true; // Set the flag after evaluation
   }
 
   clear() {
     this.current = "";
+    this.lastEvaluated = false; // Reset the flag
   }
 
   delete() {
-    this.current = this.current.toString().split("").slice(0, -1).join("");
+    if (this.lastEvaluated) {
+      this.current = ""; // Clear if last action was evaluation
+      this.lastEvaluated = false; // Reset the flag
+    } else {
+      this.current = this.current.toString().split("").slice(0, -1).join("");
+    }
   }
 }
 
