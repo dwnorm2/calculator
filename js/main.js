@@ -76,15 +76,13 @@ document.querySelector(".equals").addEventListener("click", function () {
   showCurrentNum();
 });
 
-
-// Add a single event listener to the calcContainer
 document.querySelector(".calcContainer").addEventListener("click", function (event) {
   const button = event.target;
-  const validNumbers = "0123456789.";
-  
-  // Check if the clicked element's text is a valid number or decimal
-  if (validNumbers.includes(button.textContent)) {
-    calc.inputNum(button.textContent);
+  const input = button.textContent;
+
+  // Check if the input is a number or a decimal point
+  if (!isNaN(input) || input === ".") {
+    calc.inputNum(input);
     showCurrentNum();
   }
 });
