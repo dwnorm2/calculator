@@ -76,59 +76,17 @@ document.querySelector(".equals").addEventListener("click", function () {
   showCurrentNum();
 });
 
-document.querySelector(".one").addEventListener("click", function () {
-  calc.inputNum(1);
-  showCurrentNum();
-});
 
-document.querySelector(".two").addEventListener("click", function () {
-  calc.inputNum(2);
-  showCurrentNum();
-});
-
-document.querySelector(".three").addEventListener("click", function () {
-  calc.inputNum(3);
-  showCurrentNum();
-});
-
-document.querySelector(".four").addEventListener("click", function () {
-  calc.inputNum(4);
-  showCurrentNum();
-});
-
-document.querySelector(".five").addEventListener("click", function () {
-  calc.inputNum(5);
-  showCurrentNum();
-});
-
-document.querySelector(".six").addEventListener("click", function () {
-  calc.inputNum(6);
-  showCurrentNum();
-});
-
-document.querySelector(".seven").addEventListener("click", function () {
-  calc.inputNum(7);
-  showCurrentNum();
-});
-
-document.querySelector(".eight").addEventListener("click", function () {
-  calc.inputNum(8);
-  showCurrentNum();
-});
-
-document.querySelector(".nine").addEventListener("click", function () {
-  calc.inputNum(9);
-  showCurrentNum();
-});
-
-document.querySelector(".zero").addEventListener("click", function () {
-  calc.inputNum(0);
-  showCurrentNum();
-});
-
-document.querySelector(".decimal").addEventListener("click", function () {
-  calc.inputNum(".");
-  showCurrentNum();
+// Add a single event listener to the calcContainer
+document.querySelector(".calcContainer").addEventListener("click", function (event) {
+  const button = event.target;
+  const validNumbers = "0123456789.";
+  
+  // Check if the clicked element's text is a valid number or decimal
+  if (validNumbers.includes(button.textContent)) {
+    calc.inputNum(button.textContent);
+    showCurrentNum();
+  }
 });
 
 showCurrentNum();
